@@ -8,6 +8,8 @@ function App() {
   const [userObject, setUserObject] = useState({ user: [] });
   const [toggle, setToggle] = useState(false);
 
+  const [isHovering, setIsHovering] = useState(false);
+
   const TransferHandler = (value) => {
     console.log(value)
     let object = userObject["user"];
@@ -16,6 +18,13 @@ function App() {
 
 
   }
+
+  const clickItem = (value) =>{
+    console.log(value);
+    value.target.hidden = true;
+
+  }
+  
 
   return (
     <div className="App">
@@ -29,7 +38,8 @@ function App() {
       {
         userObject.user.map(
           (item, index) =>
-          <div key={index}>
+          <div key={index} onClick = {clickItem} style={{}}>
+         
             <p> <span style={{color:'blue'}}>Name: </span>{item.fName} {item.lName} <span style={{color:'blue'}}>Age: </span>{item.age} <span style={{color:'blue'}}>Phone:</span>{item.pNumber}</p>
            
           </div>
